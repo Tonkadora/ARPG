@@ -15,9 +15,8 @@ func _ready():
 	
 	
 func _process(delta):
-	direction.x = Input.get_action_strength("move_right")- Input.get_action_strength("move_left")
-	direction.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
-	direction = direction.normalized()
+	direction = Vector2(Input.get_axis("move_left", "move_right"), Input.get_axis("move_up","move_down")).normalized()
+
 
 
 func _physics_process(delta):
