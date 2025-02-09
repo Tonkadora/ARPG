@@ -1,9 +1,9 @@
 extends CharacterBody2D
 class_name Enemy
 
-
 signal direction_changed(new_direction: Vector2)
 signal enemy_damaged()
+signal enemy_destroyed()
 
 @export var hp: int = 3
 
@@ -17,11 +17,14 @@ var invulneralble: bool = false
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var enemy_state_machine:EnemyStateMachine = $EnemyStateMachine
+@onready var hitbox: Hitbox = $Hitbox
 
 
 func _ready():
 	enemy_state_machine.initalize(self)
 	player = PlayerManager.player
+	hitbox.damaged.connect(on_hitbox_damaged)
+	
 	
 func _physics_process(_delta):
 	move_and_slide()
@@ -58,3 +61,13 @@ func animation_direction() -> String:
 	else:
 		return "side"
 	
+
+func on_hitbox_damaged(damage: int) -> void:
+	if invulneralble:
+		return
+		
+	hp -= damage
+	if hp > 0:
+		enemy_damaged.emit()
+	else:
+		enemy_destroyed.emit()

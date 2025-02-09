@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://rpg61usct1k7"
-path="res://.godot/imported/hit_01.wav-ceb62794fada5f66e053eecdbcc84152.sample"
+path="res://.godot/imported/hit_01.wav-24213b87f1218cbd8d164ef6a516b9ef.sample"
 
 [deps]
 
-source_file="res://Downloads/hit_01.wav"
-dest_files=["res://.godot/imported/hit_01.wav-ceb62794fada5f66e053eecdbcc84152.sample"]
+source_file="res://Enemies/Slime/hit_01.wav"
+dest_files=["res://.godot/imported/hit_01.wav-24213b87f1218cbd8d164ef6a516b9ef.sample"]
 
 [params]
 
