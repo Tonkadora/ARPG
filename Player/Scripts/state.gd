@@ -2,8 +2,13 @@ extends Node
 class_name State
 
 static var player: Player 
+static var state_machine: PlayerStateMachine
 
 
+func init():
+	pass
+	
+	
 func _ready():
 	pass
 	
