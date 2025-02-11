@@ -2,8 +2,8 @@ extends CharacterBody2D
 class_name Enemy
 
 signal direction_changed(new_direction: Vector2)
-signal enemy_damaged()
-signal enemy_destroyed()
+signal enemy_damaged(hurtbox: Hurtbox)
+signal enemy_destroyed(hurtbox: Hurtbox)
 
 @export var hp: int = 3
 
@@ -62,12 +62,12 @@ func animation_direction() -> String:
 		return "side"
 	
 
-func on_hitbox_damaged(damage: int) -> void:
+func on_hitbox_damaged(hurtbox: Hurtbox) -> void:
 	if invulneralble:
 		return
 		
-	hp -= damage
+	hp -= hurtbox.damage
 	if hp > 0:
-		enemy_damaged.emit()
+		enemy_damaged.emit(hurtbox)
 	else:
-		enemy_destroyed.emit()
+		enemy_destroyed.emit(hurtbox)

@@ -8,6 +8,8 @@ class_name EnemyStateStun
 @export_category("AI")
 @export var next_state: EnemyState
 
+
+var damage_position: Vector2
 var direction: Vector2
 var animation_finished: bool = false
 
@@ -19,7 +21,7 @@ func init() -> void:
 func enter() -> void:
 	enemy.invulneralble = true
 	animation_finished = false
-	direction = enemy.global_position.direction_to(enemy.player.global_position)
+	direction = enemy.global_position.direction_to(damage_position)
 	
 	enemy.set_direction(direction)
 	enemy.velocity = direction * -knock_back_speed
@@ -44,7 +46,8 @@ func physics_process(_delta) -> EnemyState:
 	return null
 	
 	
-func on_enemy_damaged() -> void:
+func on_enemy_damaged(hurtbox: Hurtbox) -> void:
+	damage_position = hurtbox.global_position
 	state_machine.change_state(self)
 
 

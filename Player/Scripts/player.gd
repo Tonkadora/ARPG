@@ -2,22 +2,27 @@ extends CharacterBody2D
 class_name Player
 
 signal direction_changed(new_direction: Vector2)
+signal player_damaged(hurtbox: Hurtbox)
 
 const dir_4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 
 var cardinal_direction: Vector2 = Vector2.DOWN
 var direction: Vector2 = Vector2.ZERO
+var invulerable: bool = false
+var hp: int = 6
+var max_hp:int = 6
 
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var state_machine: PlayerStateMachine = $StateMachine
+@onready var hitbox: Hitbox = $Hitbox
 
 
 func _ready():
 	PlayerManager.player = self
 	state_machine.initalize(self)
-	
+	hitbox.damaged.connect(on_take_damage)
 	
 func _process(delta):
 	direction = Vector2(Input.get_axis("move_left", "move_right"), Input.get_axis("move_up","move_down")).normalized()
@@ -57,3 +62,15 @@ func anim_direction() -> String:
 		return "up"
 	else:
 		return "side"
+
+
+func on_take_damage(hurtbox: Hurtbox) -> void:
+	pass
+	
+	
+func update_hp(delta:float) -> void:
+	pass
+	
+
+func make_invulerable() -> void:
+	pass
