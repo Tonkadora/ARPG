@@ -80,6 +80,7 @@ func on_take_damage(hurtbox: Hurtbox) -> void:
 		
 func update_hp(delta:float) -> void:
 	hp = clampi(hp + delta, 0, max_hp)
+	PlayerHud.update_hp(hp, max_hp)
 	
 
 func make_invulerable(durration:float = 1.0) -> void:
