@@ -32,12 +32,10 @@ func _physics_process(_delta):
 	
 func set_direction(new_direction) -> bool:
 	direction = new_direction
-	print(direction)
 	if direction == Vector2.ZERO:
 		return false
 	
 	var direction_id: int = int(round((direction + cardinal_direction * 0.1).angle() / TAU * DIR_4.size()))
-	print(direction_id)
 	var new_dir = DIR_4[direction_id]
 	if new_dir == cardinal_direction:
 		return false
