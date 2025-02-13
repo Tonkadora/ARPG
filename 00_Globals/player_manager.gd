@@ -7,7 +7,8 @@ var player_spawned: bool = false
 
 func _ready():
 	add_player_instance()
-
+	await get_tree().create_timer(0.2).timeout
+	player_spawned = true
 
 func add_player_instance() -> void:
 	player = PLAYER.instantiate()

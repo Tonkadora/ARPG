@@ -3,5 +3,5 @@ class_name Plant
 
 
 
-func _on_hitbox_damaged(_damage) -> void:
+func _on_hitbox_damaged(hurtbox) -> void:
 	queue_free()

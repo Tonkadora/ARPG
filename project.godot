@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ARPG"
-run/main_scene="res://playground.tscn"
+run/main_scene="res://Levels/Area01/01.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
 [autoload]
@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 PlayerHud="*res://GUI/PlayerHud/player_hud.tscn"
 LevelManager="*res://00_Globals/level_manager.gd"
 PlayerManager="*res://00_Globals/player_manager.gd"
+SceneTransition="*res://GUI/SceneTransition/scene_transition.tscn"
 
 [display]
 
