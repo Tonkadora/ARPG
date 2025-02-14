@@ -7,10 +7,12 @@ var is_paused: bool = false
 
 @onready var button_save: Button = $Control/HBoxContainer/ButtonSave
 @onready var button_load: Button = $Control/HBoxContainer/ButtonLoad
-@onready var desctiption_label = $Control/DesctiptionLabel
+@onready var desctiption_label: Label = $Control/DesctiptionLabel
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 
 func _ready():
+	desctiption_label.text = ""
 	hide_paused_menu()
 	
 	
@@ -39,6 +41,11 @@ func hide_paused_menu() -> void:
 	hidden.emit()
 	
 
+func play_audio(audio: AudioStream) -> void:
+	audio_stream_player.stream = audio
+	audio_stream_player.play()
+	
+	
 func _on_button_save_pressed():
 	if is_paused == false:
 		return

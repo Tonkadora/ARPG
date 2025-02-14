@@ -31,3 +31,14 @@ func _on_focus_entered():
 
 func _on_focus_exited():
 	PauseMenu.update_item_description("")
+
+
+func _on_button_down():
+	if slot_data:
+		if slot_data.item_data:
+			var was_used = slot_data.item_data.use()
+			if was_used == false:
+				return
+				
+			slot_data.quantity -= 1
+			label.text = str(slot_data.quantity)

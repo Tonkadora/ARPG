@@ -149,5 +149,8 @@ text = "A red drink that restores your health. lkjadlkajsdflakjsdflkajsdjlaksdfj
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+max_polyphony = 4
+
 [connection signal="pressed" from="Control/HBoxContainer/ButtonSave" to="." method="_on_button_save_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/ButtonLoad" to="." method="_on_button_load_pressed"]
