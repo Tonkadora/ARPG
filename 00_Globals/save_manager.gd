@@ -68,3 +68,13 @@ func update_scene_path() -> void:
 
 func update_item_data() -> void:
 	current_save.inventory = PlayerManager.PLAYER_INVENTORY_DATA.get_save_data()
+
+
+func add_persitant_value(value : String) -> void:
+	if check_persitant_value(value) == false:
+		current_save.persistance.append(value)
+	
+
+func check_persitant_value(value : String) -> bool:
+	var p = current_save.persistance as Array
+	return p.has(value)
