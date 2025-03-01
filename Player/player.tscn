@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dy6a2f3dg6j0c"]
+[gd_scene load_steps=46 format=3 uid="uid://dy6a2f3dg6j0c"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_xuy8h"]
 [ext_resource type="Texture2D" uid="uid://ctrmhowyqdrqq" path="res://Player/Sprites/PlayerSprite02.png" id="2_xwx7h"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://Player/Scripts/state_stun.gd" id="11_vmsvo"]
 [ext_resource type="PackedScene" uid="uid://u8gx5ejkgnlb" path="res://Components/Hitbox/hitbox.tscn" id="13_ik5ls"]
 [ext_resource type="AudioStream" uid="uid://co5temgrvoabt" path="res://Player/Audio/hit_player.wav" id="14_4orsw"]
+[ext_resource type="Script" path="res://Player/Scripts/push_area.gd" id="14_kasuy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v4s0m"]
 
@@ -509,6 +510,9 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxad7"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmvlx"]
+size = Vector2(20, 15)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_slnlc"]
 
 [sub_resource type="Animation" id="Animation_o42yd"]
@@ -666,6 +670,17 @@ position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_rxad7")
 debug_color = Color(0.167448, 0.446577, 0.289979, 0.42)
 
+[node name="PushArea" type="Area2D" parent="Interactions"]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+script = ExtResource("14_kasuy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/PushArea"]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_wmvlx")
+debug_color = Color(0.964776, 0.454216, 0.703979, 0.42)
+
 [node name="Hitbox" parent="." instance=ExtResource("13_ik5ls")]
 collision_layer = 2
 
@@ -680,3 +695,5 @@ libraries = {
 }
 
 [connection signal="direction_changed" from="." to="Interactions" method="_on_player_direction_changed"]
+[connection signal="body_entered" from="Interactions/PushArea" to="Interactions/PushArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Interactions/PushArea" to="Interactions/PushArea" method="_on_body_exited"]

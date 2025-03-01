@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dxyg0r2r6a5tc"
-path="res://.godot/imported/lever-01.wav-e656c4ef30f2b69fd62aadca78967d92.sample"
+path="res://.godot/imported/lever-01.wav-04ddbdf52e97b90402ba639810c6b260.sample"
 
 [deps]
 
-source_file="res://Downloads/lever-01.wav"
-dest_files=["res://.godot/imported/lever-01.wav-e656c4ef30f2b69fd62aadca78967d92.sample"]
+source_file="res://Interactables/Dungeon/lever-01.wav"
+dest_files=["res://.godot/imported/lever-01.wav-04ddbdf52e97b90402ba639810c6b260.sample"]
 
 [params]
 
