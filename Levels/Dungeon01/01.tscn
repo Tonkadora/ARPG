@@ -26,6 +26,7 @@ side = 3
 
 [node name="LevelTransition2" parent="." instance=ExtResource("4_pa6wq")]
 position = Vector2(448, 272)
+level = "res://Levels/Dungeon01/02.tscn"
 side = 2
 
 [node name="PressurePlate" parent="." instance=ExtResource("5_788p3")]

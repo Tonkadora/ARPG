@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://kv06xgr85dwu"
-path="res://.godot/imported/bars_open.wav-5f6f89aa7e1f473c49940c40f67efeac.sample"
+path="res://.godot/imported/bars_open.wav-45696d602ceee111fea8556c25519847.sample"
 
 [deps]
 
-source_file="res://Interactables/Dungeon/bars_open.wav"
-dest_files=["res://.godot/imported/bars_open.wav-5f6f89aa7e1f473c49940c40f67efeac.sample"]
+source_file="res://Interactables/Dungeon/Audio/bars_open.wav"
+dest_files=["res://.godot/imported/bars_open.wav-45696d602ceee111fea8556c25519847.sample"]
 
 [params]
 

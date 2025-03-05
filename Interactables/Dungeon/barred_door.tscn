@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Interactables/Dungeon/Scripts/barred_door.gd" id="1_0y6yl"]
 [ext_resource type="Texture2D" uid="uid://c0em5tfsjemb4" path="res://Interactables/Dungeon/dungeon_props.png" id="2_goycx"]
-[ext_resource type="AudioStream" uid="uid://kv06xgr85dwu" path="res://Interactables/Dungeon/bars_open.wav" id="3_nhtt8"]
+[ext_resource type="AudioStream" uid="uid://kv06xgr85dwu" path="res://Interactables/Dungeon/Audio/bars_open.wav" id="3_nhtt8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3frqu"]
 size = Vector2(64, 65)

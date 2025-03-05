@@ -10,8 +10,8 @@ var off_rect: Rect2
 
 @onready var area_2d:Area2D = $Area2D
 @onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
-@onready var audio_activate: AudioStream = preload("res://Interactables/Dungeon/lever-01.wav")
-@onready var audio_deactivate: AudioStream = preload("res://Interactables/Dungeon/lever-02.wav")
+@onready var audio_activate: AudioStream = preload("res://Interactables/Dungeon/Audio/lever-01.wav")
+@onready var audio_deactivate: AudioStream = preload("res://Interactables/Dungeon/Audio/lever-02.wav")
 @onready var sprite: Sprite2D = $Sprite2D
 
 
