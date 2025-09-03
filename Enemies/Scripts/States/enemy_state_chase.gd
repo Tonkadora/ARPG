@@ -63,7 +63,7 @@ func physics_process(_delta) -> EnemyState:
 
 func on_player_entered() ->void:
 	can_see_player = true
-	if state_machine.current_state is EnemyStateStun:
+	if (state_machine.current_state is EnemyStateStun or state_machine.current_state is EnemyStateDestroyed):
 		return
 		
 	state_machine.change_state(self)
