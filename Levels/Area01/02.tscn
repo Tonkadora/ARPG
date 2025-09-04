@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://bdpo2ie7a2fmq"]
+[gd_scene load_steps=10 format=4 uid="uid://bdpo2ie7a2fmq"]
 
 [ext_resource type="PackedScene" uid="uid://db4u5h1mqi6qm" path="res://TileMaps/grass_01.tscn" id="1_ah85g"]
 [ext_resource type="Script" path="res://Levels/Scripts/level.gd" id="1_pnrg0"]
@@ -6,6 +6,9 @@
 [ext_resource type="AudioStream" uid="uid://jssmp4nd64sd" path="res://Levels/Music/example_music_01.ogg" id="2_p4iw5"]
 [ext_resource type="PackedScene" uid="uid://rjmfkv7njare" path="res://Levels/level_transition.tscn" id="4_txl7u"]
 [ext_resource type="PackedScene" uid="uid://b7ic538kaf6ip" path="res://Props/Plants/plant.tscn" id="5_fqv56"]
+[ext_resource type="PackedScene" uid="uid://dm56bm16hbv78" path="res://NPC/npc.tscn" id="7_vubxn"]
+[ext_resource type="Resource" uid="uid://4v3hwk7bpaaw" path="res://NPC/00_NPCs/NPC_02.tres" id="8_gskuo"]
+[ext_resource type="PackedScene" uid="uid://duhjms6mxbsee" path="res://NPC/npc_behavior_wander.tscn" id="8_hs4lb"]
 
 [node name="02" type="Node2D"]
 script = ExtResource("1_pnrg0")
@@ -113,3 +116,9 @@ position = Vector2(314, 431)
 
 [node name="Plant30" parent="." instance=ExtResource("5_fqv56")]
 position = Vector2(362, 431)
+
+[node name="NPC" parent="." instance=ExtResource("7_vubxn")]
+position = Vector2(537, 263)
+npc_resource = ExtResource("8_gskuo")
+
+[node name="NPCBehaviorWander" parent="NPC" instance=ExtResource("8_hs4lb")]
