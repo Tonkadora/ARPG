@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cd8fjs7j6kljb"
-path="res://.godot/imported/catch.wav-0cbfcbac7fcee9b757cdbd726d3161ec.sample"
+path="res://.godot/imported/catch.wav-5ff22a60611233f00b8384bb891dc258.sample"
 
 [deps]
 
-source_file="res://Downloads/catch.wav"
-dest_files=["res://.godot/imported/catch.wav-0cbfcbac7fcee9b757cdbd726d3161ec.sample"]
+source_file="res://Player/Abilities/Boomerang/catch.wav"
+dest_files=["res://.godot/imported/catch.wav-5ff22a60611233f00b8384bb891dc258.sample"]
 
 [params]
 

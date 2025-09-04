@@ -18,6 +18,7 @@ var max_hp:int = 6
 @onready var state_machine: PlayerStateMachine = $StateMachine
 @onready var hitbox: Hitbox = $Hitbox
 @onready var effect_animation_player: AnimationPlayer = $EffectAnimationPlayer
+@onready var audio: AudioStreamPlayer2D= $Audio/AudioStreamPlayer2D
 
 
 func _ready():

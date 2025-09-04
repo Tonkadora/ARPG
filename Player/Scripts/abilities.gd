@@ -20,7 +20,6 @@ func _unhandled_input(event):
 			boomerang_ability()
 	
 func boomerang_ability():
-	print(boomerange_instance)
 	if boomerange_instance != null:
 		return
 		
