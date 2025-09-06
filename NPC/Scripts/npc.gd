@@ -10,6 +10,7 @@ signal do_behavior_enabled
 var state: String = "idle"
 var direction: Vector2 = Vector2.DOWN
 var direction_name: String = "down"
+var do_behavior: bool = true
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation: AnimationPlayer = $AnimationPlayer
@@ -19,7 +20,7 @@ func _ready():
 	set_up_npc()
 	if Engine.is_editor_hint():
 		return
-
+	do_behavior_enabled.emit()
 
 func _physics_process(delta):
 	move_and_slide()
@@ -52,7 +53,7 @@ func update_direction(target_position: Vector2) -> void:
 func update_direction_name():	
 	var threshold: float = 0.45
 	if direction.y < -threshold:
-		direction_name = " up"
+		direction_name = "up"
 	elif direction	.y > threshold:
 		direction_name = "down"
 	elif direction.x > threshold || direction.x < - threshold:
