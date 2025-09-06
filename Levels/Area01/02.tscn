@@ -121,4 +121,4 @@ position = Vector2(362, 431)
 position = Vector2(537, 263)
 npc_resource = ExtResource("8_gskuo")
 
-[node name="NPCBehaviorWander" parent="NPC" instance=ExtResource("8_hs4lb")]
+[node name="NPCWanderBehavior" parent="NPC" instance=ExtResource("8_hs4lb")]
