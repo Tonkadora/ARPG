@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bdpo2ie7a2fmq"]
+[gd_scene load_steps=12 format=4 uid="uid://bdpo2ie7a2fmq"]
 
 [ext_resource type="PackedScene" uid="uid://db4u5h1mqi6qm" path="res://TileMaps/grass_01.tscn" id="1_ah85g"]
 [ext_resource type="Script" path="res://Levels/Scripts/level.gd" id="1_pnrg0"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://dm56bm16hbv78" path="res://NPC/npc.tscn" id="7_vubxn"]
 [ext_resource type="Resource" uid="uid://4v3hwk7bpaaw" path="res://NPC/00_NPCs/NPC_02.tres" id="8_gskuo"]
 [ext_resource type="PackedScene" uid="uid://duhjms6mxbsee" path="res://NPC/npc_behavior_wander.tscn" id="8_hs4lb"]
+[ext_resource type="PackedScene" uid="uid://cvdyrcnh5nejp" path="res://NPC/npc_behavior_patrol.tscn" id="10_ojorf"]
+[ext_resource type="PackedScene" uid="uid://cq4ec26k5fn7d" path="res://NPC/patrol_location.tscn" id="11_2gi35"]
 
 [node name="02" type="Node2D"]
 script = ExtResource("1_pnrg0")
@@ -122,3 +124,29 @@ position = Vector2(537, 263)
 npc_resource = ExtResource("8_gskuo")
 
 [node name="NPCWanderBehavior" parent="NPC" instance=ExtResource("8_hs4lb")]
+
+[node name="NPC2" parent="." instance=ExtResource("7_vubxn")]
+position = Vector2(710, 125)
+npc_resource = ExtResource("8_gskuo")
+
+[node name="NPCBehaviorPatrol" parent="NPC2" instance=ExtResource("10_ojorf")]
+
+[node name="PatrolLocation3" parent="NPC2/NPCBehaviorPatrol" instance=ExtResource("11_2gi35")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(184, -8)
+
+[node name="PatrolLocation5" parent="NPC2/NPCBehaviorPatrol" instance=ExtResource("11_2gi35")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(86, -31)
+
+[node name="PatrolLocation" parent="NPC2/NPCBehaviorPatrol" instance=ExtResource("11_2gi35")]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(-20, 16)
+
+[node name="PatrolLocation4" parent="NPC2/NPCBehaviorPatrol" instance=ExtResource("11_2gi35")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(10, 110)
+
+[node name="PatrolLocation2" parent="NPC2/NPCBehaviorPatrol" instance=ExtResource("11_2gi35")]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(134, 142)

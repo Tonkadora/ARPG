@@ -4,6 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://b2e5s82synaes" path="res://NPC/Sprites/npc_sprite.png" id="2_ks1vx"]
 [ext_resource type="Texture2D" uid="uid://cpubnq0mx7lv3" path="res://Player/Sprites/Shadow.png" id="3_cy0sf"]
 
+[sub_resource type="Animation" id="Animation_0gs38"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
 [sub_resource type="Animation" id="Animation_ojtos"]
 resource_name = "idle_down"
 step = 0.1
@@ -20,8 +35,9 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_0gs38"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_ur157"]
+resource_name = "idle_side"
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -32,7 +48,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
+"values": [2]
 }
 
 [sub_resource type="Animation" id="Animation_nvx4q"]
@@ -49,22 +65,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
-}
-
-[sub_resource type="Animation" id="Animation_ur157"]
-resource_name = "idle_side"
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
 }
 
 [sub_resource type="Animation" id="Animation_svj0w"]
@@ -85,24 +85,6 @@ tracks/0/keys = {
 "values": [3, 4, 5, 6, 5, 4]
 }
 
-[sub_resource type="Animation" id="Animation_x7u2t"]
-resource_name = "walk_up"
-length = 1.2
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [7, 8, 9, 10, 9, 8]
-}
-
 [sub_resource type="Animation" id="Animation_sgoyl"]
 resource_name = "walk_side"
 length = 1.2
@@ -121,6 +103,24 @@ tracks/0/keys = {
 "values": [11, 12, 13, 14, 13, 12]
 }
 
+[sub_resource type="Animation" id="Animation_x7u2t"]
+resource_name = "walk_up"
+length = 1.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 10, 9, 8]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gh7hj"]
 _data = {
 "RESET": SubResource("Animation_0gs38"),
@@ -137,7 +137,8 @@ radius = 6.0
 height = 24.0
 
 [node name="NPC" type="CharacterBody2D"]
-collision_layer = 16
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_hena1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
