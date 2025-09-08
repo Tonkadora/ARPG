@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dm56bm16hbv78"]
 
-[ext_resource type="Script" path="res://NPC/Scripts/npc.gd" id="1_hena1"]
+[ext_resource type="Script" uid="uid://2i0bgljw8xoc" path="res://NPC/Scripts/npc.gd" id="1_hena1"]
 [ext_resource type="Texture2D" uid="uid://b2e5s82synaes" path="res://NPC/Sprites/npc_sprite.png" id="2_ks1vx"]
 [ext_resource type="Texture2D" uid="uid://cpubnq0mx7lv3" path="res://Player/Sprites/Shadow.png" id="3_cy0sf"]
 
