@@ -16,7 +16,7 @@ func _ready():
 	if Engine.is_editor_hint():
 		child_entered_tree.connect(gather_patrol_locations)
 		child_order_changed.connect(gather_patrol_locations)
-		
+		return
 	super()
 	
 	if patrol_locations.size() == 0:
