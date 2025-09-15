@@ -9,6 +9,12 @@ var patrol_locations: Array[PatrolLocation]
 var current_location_index: int = 0
 var target: PatrolLocation
 
+var has_started: bool = false
+var last_phase: String = ""
+var direction: Vector2
+
+@onready var timer = $Timer
+
 
 func _ready():
 	gather_patrol_locations()
@@ -31,14 +37,24 @@ func _process(delta):
 		return
 		
 	if npc.global_position.distance_to(target.target_position) < 1:
-		start()
+		idle_phase()
 		
 		
 	
 func start():
 	if npc.do_behavior == false or patrol_locations.size() < 2:
 		return
-		
+	
+	if has_started:
+		if timer.time_left == 0:
+			walk_phase()
+		return
+	
+	has_started = true
+	
+	idle_phase()
+
+func idle_phase():
 	#IDLE
 	npc.global_position = target.target_position
 	npc.state = "idle"
@@ -53,14 +69,20 @@ func start():
 		
 	target = patrol_locations[current_location_index]
 	
-	await get_tree().create_timer(wait_time).timeout
-	#WALK
+	
+	if wait_time > 0:
+		timer.start(wait_time)
+		await timer.timeout
 	
 	if npc.do_behavior == false:
-		return
+		return	
+		
+	walk_phase()
 	
+	
+func walk_phase():
 	npc.state = "walk"
-	var direction = global_position.direction_to(target.target_position)
+	direction = global_position.direction_to(target.target_position)
 	npc.direction = direction
 	npc.velocity = walk_speed * direction
 	npc.update_direction(target.target_position)

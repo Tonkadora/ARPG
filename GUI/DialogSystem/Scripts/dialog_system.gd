@@ -106,7 +106,11 @@ func set_dialog_data(d: DialogItem):
 
 func start_timer():
 	timer.wait_time = text_speed
-	
+	var char = plain_text[content.visible_characters - 1]
+	if ".:;!?".contains(char):
+		timer.wait_time *= 4
+	elif ", ".contains(char):
+		timer.wait_time *= 2
 	timer.start()
 
 

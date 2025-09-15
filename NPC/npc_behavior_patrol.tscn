@@ -4,3 +4,6 @@
 
 [node name="NPCBehaviorPatrol" type="Node2D"]
 script = ExtResource("1_2bwyv")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
