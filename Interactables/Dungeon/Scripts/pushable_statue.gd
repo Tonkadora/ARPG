@@ -7,7 +7,7 @@ var push_direction: Vector2 = Vector2.ZERO : set = set_push
 @onready var audio:AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	linear_velocity = push_direction * push_speed
 
 

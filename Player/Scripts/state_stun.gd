@@ -39,7 +39,7 @@ func physics_process(_delta: float) -> State:
 	return null
 	
 
-func handle_input(event: InputEvent) -> State:
+func handle_input(_event: InputEvent) -> State:
 	return null
 
 

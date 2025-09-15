@@ -16,7 +16,7 @@ var is_open: bool = false
 
 
 func _ready():
-	is_open_data.data_loaded.connect(on_data_loaded)
+	is_open_data.data_loaded.connect(set_state)
 	set_state()
 	
 	
@@ -46,14 +46,10 @@ func set_state() -> void:
 	else:
 		animation_player.play("closed")
 		
-
-func on_data_loaded() -> void:
-	set_state()
 	
-	
-func _on_interact_area_area_entered(area):
+func _on_interact_area_area_entered(_area):
 	PlayerManager.interact_pressed.connect(open_door)
 
 
-func _on_interact_area_area_exited(area):
+func _on_interact_area_area_exited(_area):
 	PlayerManager.interact_pressed.disconnect(open_door)

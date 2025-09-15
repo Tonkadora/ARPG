@@ -29,6 +29,11 @@ SaveManager="*res://00_Globals/save_manager.gd"
 PauseMenu="*res://GUI/PauseMenu/pause_menu.tscn"
 DialogSystem="*res://GUI/DialogSystem/dialog_system.tscn"
 
+[debug]
+
+gdscript/warnings/unused_parameter=0
+gdscript/warnings/narrowing_conversion=0
+
 [display]
 
 window/size/viewport_width=480

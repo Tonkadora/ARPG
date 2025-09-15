@@ -51,9 +51,9 @@ func physics_process(_delta: float) -> State:
 	return null
 	
 
-func handle_input(event: InputEvent) -> State:
+func handle_input(_event: InputEvent) -> State:
 	return null
 
 
-func end_attack(animation_name: String) -> void:
+func end_attack(_animation_name: String) -> void:
 	attacking = false

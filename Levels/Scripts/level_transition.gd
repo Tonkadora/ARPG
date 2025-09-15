@@ -98,5 +98,5 @@ func get_offset() -> Vector2:
 	return offset
 
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	LevelManager.load_new_level(level, target_transition_area, get_offset())

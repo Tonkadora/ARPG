@@ -31,8 +31,9 @@ func use_item(item: ItemData, count: int = 1) -> bool:
 	for s in slots:
 		if s:
 			if s.item_data == item and s.quantity >= count:
+				print('used 1')
 				s.quantity -= count
-			return true
+				return true
 	return false
 	
 	

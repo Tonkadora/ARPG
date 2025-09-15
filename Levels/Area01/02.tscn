@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bdpo2ie7a2fmq"]
+[gd_scene load_steps=15 format=4 uid="uid://bdpo2ie7a2fmq"]
 
 [ext_resource type="PackedScene" uid="uid://db4u5h1mqi6qm" path="res://TileMaps/grass_01.tscn" id="1_ah85g"]
 [ext_resource type="Script" path="res://Levels/Scripts/level.gd" id="1_pnrg0"]
@@ -9,8 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://dm56bm16hbv78" path="res://NPC/npc.tscn" id="7_vubxn"]
 [ext_resource type="Resource" uid="uid://4v3hwk7bpaaw" path="res://NPC/00_NPCs/NPC_02.tres" id="8_gskuo"]
 [ext_resource type="PackedScene" uid="uid://duhjms6mxbsee" path="res://NPC/npc_behavior_wander.tscn" id="8_hs4lb"]
+[ext_resource type="PackedScene" uid="uid://da4ad4wihxqer" path="res://Interactables/Dialog/dialog_interaction.tscn" id="10_gv3ad"]
 [ext_resource type="PackedScene" uid="uid://cvdyrcnh5nejp" path="res://NPC/npc_behavior_patrol.tscn" id="10_ojorf"]
 [ext_resource type="PackedScene" uid="uid://cq4ec26k5fn7d" path="res://NPC/patrol_location.tscn" id="11_2gi35"]
+[ext_resource type="Script" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="11_43fy1"]
+[ext_resource type="Resource" uid="uid://bnthgdkhs2qgv" path="res://NPC/00_NPCs/player.tres" id="12_7sa6d"]
 
 [node name="02" type="Node2D"]
 script = ExtResource("1_pnrg0")
@@ -124,6 +127,21 @@ position = Vector2(537, 263)
 npc_resource = ExtResource("8_gskuo")
 
 [node name="NPCWanderBehavior" parent="NPC" instance=ExtResource("8_hs4lb")]
+
+[node name="DialogInteraction" parent="NPC" instance=ExtResource("10_gv3ad")]
+
+[node name="DialogText" type="Node" parent="NPC/DialogInteraction"]
+script = ExtResource("11_43fy1")
+text = "Hi, [b] Hero [/b] is that you?"
+
+[node name="DialogText2" type="Node" parent="NPC/DialogInteraction"]
+script = ExtResource("11_43fy1")
+text = "What do I look like a sissy nany? Of course I'm the [wave] HERO [/wave]!"
+npc_info = ExtResource("12_7sa6d")
+
+[node name="DialogText3" type="Node" parent="NPC/DialogInteraction"]
+script = ExtResource("11_43fy1")
+text = "Grrrrreat... I heard there is some sweet loot in the dungeons. that is if your brave enough to go in there. "
 
 [node name="NPC2" parent="." instance=ExtResource("7_vubxn")]
 position = Vector2(710, 125)
