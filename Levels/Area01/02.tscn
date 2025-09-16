@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bdpo2ie7a2fmq"]
+[gd_scene load_steps=17 format=4 uid="uid://bdpo2ie7a2fmq"]
 
 [ext_resource type="PackedScene" uid="uid://db4u5h1mqi6qm" path="res://TileMaps/grass_01.tscn" id="1_ah85g"]
 [ext_resource type="Script" path="res://Levels/Scripts/level.gd" id="1_pnrg0"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://cq4ec26k5fn7d" path="res://NPC/patrol_location.tscn" id="11_2gi35"]
 [ext_resource type="Script" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="11_43fy1"]
 [ext_resource type="Resource" uid="uid://bnthgdkhs2qgv" path="res://NPC/00_NPCs/player.tres" id="12_7sa6d"]
+[ext_resource type="Script" path="res://Interactables/Dialog/Scripts/dialog_choice.gd" id="15_4r0cl"]
+[ext_resource type="Script" path="res://Interactables/Dialog/Scripts/dialog_branch.gd" id="16_11tsb"]
 
 [node name="02" type="Node2D"]
 script = ExtResource("1_pnrg0")
@@ -133,15 +135,18 @@ npc_resource = ExtResource("8_gskuo")
 [node name="DialogText" type="Node" parent="NPC/DialogInteraction"]
 script = ExtResource("11_43fy1")
 text = "Hi, [b] Hero [/b] is that you?"
+npc_info = ExtResource("8_gskuo")
 
 [node name="DialogText2" type="Node" parent="NPC/DialogInteraction"]
 script = ExtResource("11_43fy1")
-text = "What do I look like a sissy nany? Of course I'm the [wave] HERO [/wave]!"
+text = "What do I look like a sissy nany? Of course I'm 
+the [wave] HERO [/wave]!"
 npc_info = ExtResource("12_7sa6d")
 
 [node name="DialogText3" type="Node" parent="NPC/DialogInteraction"]
 script = ExtResource("11_43fy1")
 text = "Grrrrreat... I heard there is some sweet loot in the dungeons. that is if your brave enough to go in there. "
+npc_info = ExtResource("8_gskuo")
 
 [node name="NPC2" parent="." instance=ExtResource("7_vubxn")]
 position = Vector2(710, 125)
@@ -173,4 +178,33 @@ position = Vector2(198, 86)
 
 [node name="DialogText" type="Node" parent="NPC2/DialogInteraction"]
 script = ExtResource("11_43fy1")
-text = "Hi how are you, Hero?"
+text = "Hi Hero! Will you help me on a most noble quest?"
+npc_info = ExtResource("8_gskuo")
+
+[node name="DialogChoice" type="Node" parent="NPC2/DialogInteraction"]
+script = ExtResource("15_4r0cl")
+npc_info = ExtResource("12_7sa6d")
+
+[node name="DialogBranch" type="Node" parent="NPC2/DialogInteraction/DialogChoice"]
+script = ExtResource("16_11tsb")
+text = "You can count on me."
+
+[node name="DialogText" type="Node" parent="NPC2/DialogInteraction/DialogChoice/DialogBranch"]
+script = ExtResource("11_43fy1")
+text = "Thank you, My hero, we all look up to you!"
+
+[node name="DialogText2" type="Node" parent="NPC2/DialogInteraction/DialogChoice/DialogBranch"]
+script = ExtResource("11_43fy1")
+text = "You will need to go deep into to the dungeon to get my magic flute."
+
+[node name="DialogText3" type="Node" parent="NPC2/DialogInteraction/DialogChoice/DialogBranch"]
+script = ExtResource("11_43fy1")
+text = "Just be weary of the deep dangers that lurk with in. "
+
+[node name="DialogBranch2" type="Node" parent="NPC2/DialogInteraction/DialogChoice"]
+script = ExtResource("16_11tsb")
+text = "Screw you loser. What do I look like your..."
+
+[node name="DialogText" type="Node" parent="NPC2/DialogInteraction/DialogChoice/DialogBranch2"]
+script = ExtResource("11_43fy1")
+text = "OH no, no , no we are all fkd."

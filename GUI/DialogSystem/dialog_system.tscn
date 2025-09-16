@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://vtqju0rl1wah"]
+[gd_scene load_steps=17 format=3 uid="uid://vtqju0rl1wah"]
 
 [ext_resource type="Script" path="res://GUI/DialogSystem/Scripts/dialog_system.gd" id="1_adr34"]
 [ext_resource type="Texture2D" uid="uid://ccm7sdo8d52xy" path="res://GUI/DialogSystem/Sprites/text-bubble.png" id="2_uvay6"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://cbqiwtjphyc6l" path="res://GUI/Fonts/m5x7.ttf" id="6_1emyi"]
 [ext_resource type="AudioStream" uid="uid://cmifpo8etidcp" path="res://GUI/DialogSystem/Audio/voice_blip.wav" id="6_75tmu"]
 [ext_resource type="Script" path="res://GUI/DialogSystem/Scripts/portrait_sprite.gd" id="6_ecukd"]
+[ext_resource type="Theme" uid="uid://dekc27kjha3sg" path="res://GUI/DialogSystem/dialog_choice.tres" id="9_g8gbr"]
 
 [sub_resource type="Gradient" id="Gradient_kqj55"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -78,7 +79,7 @@ _data = {
 
 [node name="DialogSystem" type="CanvasLayer"]
 process_mode = 3
-layer = 0
+layer = 3
 script = ExtResource("1_adr34")
 
 [node name="DialogUI" type="Control" parent="."]
@@ -176,5 +177,36 @@ libraries = {
 "": SubResource("AnimationLibrary_fsfsl")
 }
 autoplay = "default"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -85.0
+offset_top = -189.0
+offset_right = 228.0
+offset_bottom = -103.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("9_g8gbr")
+alignment = 2
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+text = "Choice 1..."
+alignment = 0
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Choice 1..."
+alignment = 0
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Choice 1..."
+alignment = 0
 
 [connection signal="timeout" from="DialogUI/Timer" to="." method="_on_timer_timeout"]
